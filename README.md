@@ -8,10 +8,37 @@ Node.js server hosted in a Docker container configured on a Raspberry Pi3
 docker-compose up -d
 ```
 
+### Development Node.js Server
+To access: Visit `192.168.1.6:49861`  
+**Note:** If this page cannot be accessed, check the IP address is correct by running the command `ifconfig` on the Raspberry Pi
+
+To update:
+* Rebuild the image
+```
+docker build -t ezhai24/rpi-server
+```
+* From the working directory, push the image to Dockerhub
+```
+docker push ezhai24/rpi-server .
+```
+
+### Pydio
+* Access `https://192.168.1.6:443`
+**Note:** Your browser may throw warnings as Pydio uses self-signed certificates. These are safe to ignore.
+* Follow the installation wizard
+```
+Database credentials:
+* url: localhost
+* database name: pydio
+* user name: pydio
+* user password: pydio
+```
+* If necessary, follow the post-installation steps found at the bottom of this page: https://hub.docker.com/r/jordancrawford/rpi-pydio-docker/
+
 ## How it was built
-### Create and Dockerize a Basic Node.js App
+### Development Node.js Server
 * Follow this step by step tutorial: https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
-**Note: ** The image must be built from `arm32v7/node` the official node Docker image for Raspberry Pi3's architecture
+**Note:** The image must be built from `arm32v7/node` - the official node Docker image for Raspberry Pi3's architecture  
 
 ### Pydio
 "Pydio is like Google Drive for your personal cloud."
