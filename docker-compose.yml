@@ -1,0 +1,18 @@
+version: '3'
+services:
+  watchtower:
+    image: v2tec/watchtower:armhf-latest
+    container_name: watchtower
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+  rpi-server:
+    image: ezhai24/rpi-server
+    container_name: rpi-server
+    ports:
+      - "49861:20000"
+  pydio:
+    image: jordancrawford/rpi-pydio-docker
+    container_name: pydio
+    ports:
+      - "80:80"
+      - "443:443"
