@@ -77,3 +77,12 @@ sudo pip install docker-compose
 * Create a `docker-compose.yml` file in the project's working directory
   * Getting started: https://docs.docker.com/compose/gettingstarted/
   * Version 3 Reference: https://docs.docker.com/compose/compose-file/
+* Stop and remove all the containers from above
+```
+docker stop <container>
+docker system prune
+```
+* Start all containers
+```
+docker-compose up -d
+```
